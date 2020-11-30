@@ -1,0 +1,32 @@
+<div style="text-align: center;">
+  <img 
+  src="../assets/chillies.png"
+   alt="image"
+   width="200"
+   height="200"
+   class=logo>
+   <h1 class="app-title">Todo List</h1>
+</div>
+<div class="container">
+  Add a Todo
+  <br>
+  <input
+   type="text"
+   class="input-text"
+   placeholder="Type a todo"
+   (keyup.enter)="addItem()"
+   [(ngModel)]="todoValue"
+   />
+  <button class="add-button btn btn-outline-primary btn-sm" (click)="addItem()">Add Todo</button>
+  <div class="list">
+      <ul>
+        <li *ngFor="let item of list">
+          <input type="checkbox" name="isDone"
+          [(ngModel)]="item.isDone"
+          />
+          {{item.value}}
+          <button type="button" class="btn btn-outline-warning" (click)="deleteItem(item.id)">Delete</button>
+        </li>
+      </ul>
+  </div>
+</div>
